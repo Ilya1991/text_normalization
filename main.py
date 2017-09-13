@@ -21,6 +21,10 @@ import pandas as pd
 # DIGIT          2012    2012   0.02      100.00
 # TIME           1945    1895   0.02       97.43
 
+FOLDER = os.path.dirname(os.path.dirname(__file__))
+TRAIN = os.path.join(FOLDER, 'ru_train.csv')
+TEST = os.path.join(FOLDER, 'ru_test.csv')
+
 
 def make_transliteration_dictionary(train):
     """
@@ -56,10 +60,6 @@ def make_class_detection_classifier(train):
 
 
 if __name__ == '__main__':
-
-    FOLDER = os.path.dirname(os.path.dirname(__file__))
-    TRAIN = os.path.join(FOLDER, 'ru_train.csv')
-    TEST = os.path.join(FOLDER, 'ru_test.csv')
 
     # learn estimator if not exists
     if not os.path.isfile(ESTIMATOR_PATH):
